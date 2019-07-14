@@ -63,6 +63,7 @@ def process_log_file(cur, filepath):
         cur.execute(user_table_insert, row)
 
     # insert songplay records
+    unknown_count = 0
     for index, row in df.iterrows():
 
         # get songid and artistid from song and artist tables
@@ -72,12 +73,16 @@ def process_log_file(cur, filepath):
         if results:
             songid, artistid = results
         else:
+            unknown_count += 1
             songid, artistid = None, None
 
         # insert songplay record
         songplay_data = (row.ts, row.userId, row.level, songid, artistid, row.sessionId, row.location, row.userAgent)
 
         cur.execute(songplay_table_insert, songplay_data)
+    if unknown_count > 0:
+        print('{}: song and artist could not be identified for {} out of {} songplays and were set to null.'.
+              format(filepath, unknown_count, len(df)))
 
 
 def process_data(cur, conn, filepath, func):

@@ -1,4 +1,4 @@
-# DEP1
+# DEP1 - Data Modelling with Postgres and pandas
 Project 1 of the Data Engineering Nanodegree <br>
 Michal Pytlos, June 2019
 
@@ -16,8 +16,8 @@ The database is optimized for queries on song play analysis and utilizes the sta
     * time - timestamps of records in songplays broken down into specific units
 
 ### ETL pipeline
-The pipeline transfers data from two types of JSON files to the database: 
-* files with songs metadata saved in **data/song_data**. Each file contains metadata on a single song in the JSON format with the following fields: num_songs, artist_id, artist_latitude, artist_longitude, artist_location, artist_name, song_id, title, duration and year. 
+The pipeline transfers data from two types of JSON files to the database:
+* files with songs metadata saved in **data/song_data**. Each file contains metadata on a single song in the JSON format with the following fields: num_songs, artist_id, artist_latitude, artist_longitude, artist_location, artist_name, song_id, title, duration and year.
 * files with user activity saved in **data/log_data**. Each file contains data on user activity from a given day. Each line of this file contains data on a single activity of a user in JSON format with the following fields: artist, auth, firstName, gender, itemInSession, lastName, length, level, location, method, page, registration, sessionId, song, status, ts, userAgent and userId.
 
 ## Prerequisites
